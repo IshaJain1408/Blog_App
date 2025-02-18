@@ -578,3 +578,37 @@ label{
   cursor: pointer;
   color: #666;
 }
+.blog-details-container {
+  margin-top: 5.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.content-box {
+  width: 100vw;
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.blog-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.blog-image {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.blog-description {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.6;
+}
