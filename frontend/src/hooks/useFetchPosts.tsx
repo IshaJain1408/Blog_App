@@ -13,6 +13,7 @@ interface UseFetchPostsResponse {
   posts: Post[];
   loading: boolean;
   error: string | null;
+  fetchPosts: () => void;
 }
 
 const useFetchPosts = (): UseFetchPostsResponse => {
@@ -20,24 +21,22 @@ const useFetchPosts = (): UseFetchPostsResponse => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  
+  const fetchPosts = async () => {
+    try {
+      const response = await axios.get('http://localhost:5000/api/posts');
+      setPosts(response.data.posts);
+    } catch (err) {
+      setError('Failed to fetch posts. Please try again later.');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const response = await axios.get('http://localhost:5000/api/posts');
-        setPosts(response.data.posts);
-      } catch (err) {
-        setError('Failed to fetch posts. Please try again later.');
-      } finally {
-        setLoading(false);
-      }
-    };
-
     fetchPosts();
   }, []);
 
-  return { posts, loading, error };
+  return { posts, loading, error ,fetchPosts};
 };
 
 export default useFetchPosts;

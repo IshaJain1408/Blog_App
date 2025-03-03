@@ -179,6 +179,44 @@
     position: relative;
     z-index: 2;
   }
+  .button-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+  .button-end{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 10px;
+  }
+ 
+  .delete-button {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+
+  
+  .delete-button:hover{
+    background-color: #c82333;
+
+  }
+
+  .delete-icon{
+    margin-right: 5px;
+  }
+
+
   
   .banner-image {
     border-radius: 10px;
@@ -293,8 +331,10 @@
   }
   
   .card-body {
-    background-color: #0a0b1df7;
+    background-color: #10112f;
+    border-bottom-left-radius: 10px;
     color: white;
+    border-bottom-right-radius: 10px;
   }
   
   .sub-text {
@@ -506,10 +546,9 @@
   }
   
   .blog-content-box {
-    width: 100vw;
-    background: #fff;
     padding: 20px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    color: white !important;
     text-align: center;
   }
   
@@ -554,7 +593,7 @@
   .blog-title {
     font-size: 2rem;
     font-weight: bold;
-    color: #333;
+    color: white;
     margin-bottom: 20px;
   }
   .blog-label{
@@ -571,7 +610,7 @@
   
   .blog-description {
     font-size: 1.1rem;
-    color: #555;
+    color: #70717B;
     line-height: 1.6;
   }
   

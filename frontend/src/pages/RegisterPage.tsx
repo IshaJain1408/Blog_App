@@ -16,7 +16,7 @@ const Register: React.FC = () => {
     try {
       const response = await axios.post('http://localhost:5000/api/register', { email, password,name });
       if (response.data.success) {
-        alert("User successfully Registerd")
+        alert("User successfully Register")
         navigate('/login');
       }
     } catch (error) {

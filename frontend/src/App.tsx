@@ -8,17 +8,20 @@ import Login from './pages/LoginPage';
 import Profile from './pages/Profile';
 import BlogDetails from './pages/BlogDetails';
 import SearchResults from './pages/SearchResults';
+import ProtectedRoute from './components/ProtectedRoute';
 
 const App: React.FC = () => (
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/create-post" element={<BlogForm />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/blog/:id" element={<BlogDetails/>} />
-        <Route path="/profile" element={<Profile />} />
         <Route path="/search-results" element={<SearchResults />} />
-      </Routes>
+        <Route element={<ProtectedRoute />}>
+        <Route path="/create-post" element={<BlogForm />} />
+        <Route path="/profile" element={<Profile />} />
+        </Route>
+        </Routes>
 );
 
 export default App;

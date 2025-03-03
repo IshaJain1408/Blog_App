@@ -1,15 +1,34 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import useFetchPosts from '../hooks/useFetchPosts';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import axios from 'axios';
+import { FaTrash  } from 'react-icons/fa';
 
 const BlogList: React.FC = () => {
-  const { posts, loading, error } = useFetchPosts();
+  const { posts, loading, error ,fetchPosts} = useFetchPosts();
+  const [userEmail, setUserEmail] = useState<string | null>(null);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const email = localStorage.getItem('userEmail');
+    setUserEmail(email);
+  }, []);
 
   const navigateToPost = (postId: number) => navigate(`/blog/${postId}`);
 
-  return (
+  const handleDelete = async (postId: number) => {
+    if (window.confirm('Are you sure you want to delete this post?')) {
+      try {
+        await axios.delete(`http://localhost:5000/api/posts/${postId}`);
+        fetchPosts();
+      } catch (err) {
+        console.error('Error deleting post:', err);
+      }
+    }
+  };
+
+ return (
     <div className="container mt-5">
     <section className="blog-section">
       <div className="container">
@@ -39,9 +58,19 @@ const BlogList: React.FC = () => {
                   <div className="card-body">
                     <h5 className="card-title">{post.title}</h5>
                     <p className="card-text">{post.description}</p>
+                    <div className="button-row">
+
                     <button className="blog-button" onClick={() => navigateToPost(post._id)}>
 Read More
 </button>
+{userEmail && (
+                          <div className="button-end">
+                            <button className="delete-button" onClick={() => handleDelete(post._id)}>
+                              <FaTrash className="delete-icon" />
+                            </button>
+                          </div>
+                        )}
+                      </div>
                   </div>
                 </div>
               </div>
