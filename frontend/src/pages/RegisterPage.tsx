@@ -25,9 +25,9 @@ const Register: React.FC = () => {
   };
 
   return (
-      <div className="login-container">
-        <div className="login-form">
-          <div className="login-content">
+      <div className="auth-container">
+        <div className="auth-form">
+          <div className="auth-content">
             <h2 className="welcome-text">
             Create an Account <span>🚀</span>
             </h2>

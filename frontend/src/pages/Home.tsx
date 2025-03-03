@@ -27,7 +27,7 @@ const Home: React.FC = () => {
             <p className="slide-description" >
               Explore new places and share your journey.
             </p>
-<Link to={"/create-post"}>
+            <Link to={"/create-post"}>
             <motion.button
               className="styled-button"
               whileHover={{ scale: 1.1 }}

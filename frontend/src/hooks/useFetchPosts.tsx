@@ -20,6 +20,8 @@ const useFetchPosts = (): UseFetchPostsResponse => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
+  
+
   useEffect(() => {
     const fetchPosts = async () => {
       try {

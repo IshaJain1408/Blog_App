@@ -23,9 +23,9 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="login-container">
-    <div className="login-form">
-      <div className="login-content">
+    <div className="auth-container">
+    <div className="auth-form">
+      <div className="auth-content">
         <h2 className="welcome-text">
           Welcome Back <span>👋</span>
         </h2>

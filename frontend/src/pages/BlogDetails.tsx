@@ -23,7 +23,7 @@ const BlogDetails: React.FC = () => {
       <Navbar />
       <div className="container blog-details-container">
         <section className="blog-details">
-          <div className="content-box">
+          <div className="blog-content-box">
             {postDetails ? (
               <div>
                 <h2 className="blog-title">{postDetails.title}</h2>
